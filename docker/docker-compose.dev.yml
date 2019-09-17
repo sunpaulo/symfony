@@ -1,0 +1,37 @@
+version: "3"
+services:
+  php:
+    build: ./php-fpm-xdebug
+    ports:
+      - 9000:9000
+
+  nginx:
+    ports:
+      - 80:80
+
+  mailservice:
+    image: djfarrelly/maildev
+    ports:
+      - 1080:80
+      - 25
+    networks:
+      application:
+        aliases:
+          - smtpmail
+  mysql:
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: root
+      PMA_USER: homestead
+      PMA_PASSWORD: secret
+      PMA_HOST: mysql
+    restart: always
+    networks:
+      - application
+    ports:
+      - 8080:80
