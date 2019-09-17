@@ -1,7 +1,7 @@
-/.idea
+.idea/
 /.vagrant
 ubuntu-bionic-18.04-cloudimg-console.log
-/persistent-data
+/persistent-data/
 /docker/.env
 /docker/prod.env
 /code/public/css/app.*
