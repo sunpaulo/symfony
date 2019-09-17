@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/www/app/":{"create":true,"guestpath":"/var/www/app","hostpath":"D:/symfony","disabled":false,"__vagrantfile":true}}}
