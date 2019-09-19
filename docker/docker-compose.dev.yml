@@ -2,14 +2,17 @@ version: "3"
 services:
   php:
     build: ./php-fpm-xdebug
+    container_name: php
     ports:
       - 9000:9000
 
   nginx:
+    container_name: nginx
     ports:
       - 80:80
 
   mailservice:
+    container_name: mailservice
     image: djfarrelly/maildev
     ports:
       - 1080:80
@@ -19,10 +22,12 @@ services:
         aliases:
           - smtpmail
   mysql:
+    container_name: mysql
     ports:
       - 3306:3306
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     environment:
       PMA_ARBITRARY: 1
