@@ -15,11 +15,10 @@ Vagrant.configure("2") do |config|
     config.vm.network "private_network", ip: ip
 
     config.vm.provider "virtualbox" do |vb|
-        vb.memory = "8000"
+        vb.memory = "6000"
     end
 
     config.vm.synced_folder ".", "/vagrant", disabled: true
-
     config.vm.synced_folder ".", "/var/www/app/", create: true
 
     config.vm.provision "shell", path: "./provisions/bootstrap.sh", env: env
