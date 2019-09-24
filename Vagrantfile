@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.synced_folder ".", "/vagrant", disabled: true
-    config.vm.synced_folder ".", "/var/www/app/", create: true
+    config.vm.synced_folder ".", "/var/www/app/", create: true, rsync__exclude: "./code/var*"
 
     config.vm.provision "shell", path: "./provisions/bootstrap.sh", env: env
     config.vm.provision "shell", path: "./provisions/init.sh",      env: env

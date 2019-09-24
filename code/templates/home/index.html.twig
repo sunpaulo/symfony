@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+    <div class="flex-center position-ref full-height">
+        <div class="top-right links">
+            {#@auth#}
+            <a href="#">Home</a>
+            {#@else#}
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+            {#@endauth#}
+        </div>
+
+        <div class="content">
+            <div class="title m-b-md">
+                ...
+            </div>
+        </div>
+    </div>
+{% endblock %}
