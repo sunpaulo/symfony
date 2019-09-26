@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- *
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -30,11 +32,14 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $password;
 
@@ -103,7 +108,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         return [
-            'USER_ROLE'
+            'ROLE_USER'
         ];
     }
 }

@@ -61,10 +61,10 @@
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
                 {% if app.user %}
-                    <a href="#">Home</a>
+                    <a href="{{ path('home') }}">Home</a>
                 {% else %}
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
+                    <a href="{{ path('login') }}">Login</a>
+                    <a href="{{ path('register') }}">Register</a>
                 {% endif %}
             </div>
 
